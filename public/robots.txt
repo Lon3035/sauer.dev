@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /gpg/
+Disallow: /download/
+
+Sitemap: https://sauer.dev/sitemap.xml
