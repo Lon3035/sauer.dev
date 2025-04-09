@@ -1,0 +1,22 @@
+.cursor {
+  display: inline-block;
+  width: 0.3em; /* Breite des Cursors */
+  height: 1em; /* Höhe des Cursors */
+  background-color: white;
+  margin-left: 4px;
+  vertical-align: bottom; /* Positionierung am unteren Rand */
+  opacity: 1; /* Standardopacity */
+  animation: cursor-blink 0.7s infinite;
+}
+
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
