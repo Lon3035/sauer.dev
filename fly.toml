@@ -1,4 +1,4 @@
-app = "sauer-dev-staging"
+app = "lon-online"
 primary_region = "fra"
 
 [http_service]
