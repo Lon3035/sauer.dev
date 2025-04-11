@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router";
 import { Helmet } from "react-helmet";
-import DownloadButton from "./components/DownloadButton";
-import { useTerminal } from "./components/TerminalContext";
+import DownloadButton from "../components/DownloadButton";
+import { useTerminal } from "../components/TerminalContext";
 
 const Download: React.FC = () => {
   const location = useLocation();

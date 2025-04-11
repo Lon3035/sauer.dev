@@ -1,28 +1,45 @@
-# Step 1: Build Stage
-FROM node:18 AS build
+# syntax = docker/dockerfile:1
 
-# Set the working directory
+# Adjust NODE_VERSION as desired
+ARG NODE_VERSION=22.13.1
+FROM node:${NODE_VERSION}-slim AS base
+
+LABEL fly_launch_runtime="Node.js"
+
+# Node.js app lives here
 WORKDIR /app
 
-# Install dependencies
-COPY package.json package-lock.json ./
-RUN npm install
+# Set production environment
+ENV NODE_ENV="production"
 
-# Copy the rest of the application
+
+# Throw-away build stage to reduce size of final image
+FROM base AS build
+
+# Install packages needed to build node modules
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y build-essential node-gyp pkg-config python-is-python3
+
+# Install node modules
+COPY package-lock.json package.json ./
+RUN npm ci --include=dev
+
+# Copy application code
 COPY . .
 
-# Build the Vite app for production
+# Build application
 RUN npm run build
 
-# Step 2: Production Stage
-FROM nginx:alpine
+# Remove development dependencies
+RUN npm prune --omit=dev
 
-COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY --from=build /app/dist /usr/share/nginx/html
+# Final stage for app image
+FROM base
 
-# Expose the port that Nginx will use
-EXPOSE 80
+# Copy built application
+COPY --from=build /app /app
 
-# Run Nginx in the foreground
-CMD ["nginx", "-g", "daemon off;"]
+# Start the SSR server by default
+EXPOSE 5173
+CMD [ "node", "server.js" ]

@@ -1,8 +1,9 @@
 // pages/DownloadPage.tsx
-import DownloadButton from "./components/DownloadButton";
+import DownloadButton from "../components/DownloadButton";
 import { useEffect } from "react";
-import { useTerminal } from "./components/TerminalContext";
+import { useTerminal } from "../components/TerminalContext";
 import { Helmet } from "react-helmet";
+import ClientOnly from "../components/ClientOnly";
 
 export default function DownloadPage() {
   const { addSteps, clearSteps } = useTerminal();
@@ -31,11 +32,13 @@ export default function DownloadPage() {
       });
   }, []);
   return (
-    <Helmet>
-      <title>GPG Public Key</title>
-      <meta property="og:title" content={`GPG public key`} />
-      <meta property="og:description" content={`Download public key`} />
-      <meta property="og:type" content="website" />
-    </Helmet>
+    <ClientOnly>
+      <Helmet>
+        <title>GPG Public Key</title>
+        <meta property="og:title" content={`GPG public key`} />
+        <meta property="og:description" content={`Download public key`} />
+        <meta property="og:type" content="website" />
+      </Helmet>
+    </ClientOnly>
   );
 }

@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
-import { useTerminal } from "./components/TerminalContext";
+import { useTerminal } from "../components/TerminalContext";
 import { useEffect } from "react";
+import ClientOnly from "../components/ClientOnly";
 
 const Home = () => {
   const { addSteps } = useTerminal();
@@ -46,23 +47,31 @@ const Home = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Sauer.dev</title>
-        <meta property="description" content="Personal Website of Leon Sauer" />
-        <meta
-          property="og:description"
-          content="Personal Website of Leon Sauer"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="author" content="Leon Sauer" />
-        <meta
-          name="keywords"
-          content="Leon Sauer, Leon Gabriel Sauer, personal website, developer"
-        />
-        <meta name="robots" content="index, follow" />
-        <meta name="theme-color" content="#414141" />
-        <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
-      </Helmet>
+      <ClientOnly>
+        <Helmet>
+          <title>Sauer.dev</title>
+          <meta
+            property="description"
+            content="Personal Website of Leon Sauer"
+          />
+          <meta
+            property="og:description"
+            content="Personal Website of Leon Sauer"
+          />
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
+          <meta name="author" content="Leon Sauer" />
+          <meta
+            name="keywords"
+            content="Leon Sauer, Leon Gabriel Sauer, personal website, developer"
+          />
+          <meta name="robots" content="index, follow" />
+          <meta name="theme-color" content="#414141" />
+          <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
+        </Helmet>
+      </ClientOnly>
     </>
   );
 };
