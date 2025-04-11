@@ -1,16 +1,19 @@
-interface NavItem {
+"use client";
+
+type TerminalNavbarItem = {
   label: string;
   onClick: () => void;
-}
+};
 
-interface TerminalNavbarProps {
-  items: NavItem[];
-}
-
-export default function TerminalNavbar({ items }: TerminalNavbarProps) {
+export default function TerminalNavbar() {
+  const items: TerminalNavbarItem[] = [
+    { label: "Home", onClick: () => (window.location.href = "/") },
+    { label: "GPG", onClick: () => (window.location.href = "/gpg") },
+    { label: "Contact", onClick: () => (window.location.href = "/contact") },
+  ];
   return (
     <nav className="w-full">
-      <div className="max-w-5xl mx-auto flex justify-center space-x-4 pt-5">
+      <div className="max-w-5xl mx-auto flex justify-center space-x-4 pt-5 text-lg font-bold">
         {items.map((item, index) => (
           <button
             key={index}

@@ -1,4 +1,4 @@
-// components/GlobalTerminalBlock.tsx
+"use client";
 import { ReactNode, useEffect, useState } from "react";
 import { useTerminal } from "./TerminalContext";
 
@@ -76,7 +76,7 @@ export default function GlobalTerminalBlock({
   }, [steps, typingSpeed]);
 
   return (
-    <div className="h-[90vh] w-screen flex flex-col bg-[#1e1e1e] text-white font-mono overflow-hidden border border-gray-700 max-w-5xl mx-auto rounded-2xl shadow-2xl mt-[-20px]">
+    <div className="h-[90vh] w-screen flex flex-col bg-[#1e1e1e] text-white font-mono overflow-hidden border border-gray-700 max-w-5xl mx-auto rounded-2xl shadow-2xl mt-[-35px]">
       <div className="flex items-center space-x-2 bg-[#2c2c2c] px-4 py-2 border-b border-gray-700">
         <span className="h-3 w-3 rounded-full bg-purple-500"></span>
         <span className="h-3 w-3 rounded-full bg-yellow-400"></span>

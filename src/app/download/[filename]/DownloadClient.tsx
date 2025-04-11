@@ -1,14 +1,14 @@
+"use client";
+
 import React, { useEffect } from "react";
-import { useLocation } from "react-router";
-import { Helmet } from "react-helmet";
-import DownloadButton from "./components/DownloadButton";
-import { useTerminal } from "./components/TerminalContext";
+import DownloadButton from "@/components/DownloadButton";
+import { useTerminal } from "@/components/TerminalContext";
 
-const Download: React.FC = () => {
-  const location = useLocation();
-  const params = new URLSearchParams(location.search);
-  const filename = params.get("filename");
+type DownloadClientProps = {
+  filename: string;
+};
 
+export default function DownloadClient({ filename }: DownloadClientProps) {
   const { addSteps, clearSteps } = useTerminal();
 
   useEffect(() => {
@@ -74,22 +74,7 @@ const Download: React.FC = () => {
     };
 
     fetchFileSize();
-  }, [filename]);
+  }, []);
 
-  return (
-    <>
-      <Helmet>
-        <title>{filename || "Download"}</title>
-        <meta property="og:title" content={`📁 ${filename}`} />
-        <meta property="og:description" content={`Download file ${filename}`} />
-        <meta
-          property="og:url"
-          content={`https://bucket.sauer.dev/${filename}`}
-        />
-        <meta property="og:type" content="website" />
-      </Helmet>
-    </>
-  );
-};
-
-export default Download;
+  return null;
+}

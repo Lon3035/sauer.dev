@@ -1,28 +1,35 @@
-# Step 1: Build Stage
-FROM node:18 AS build
+FROM node:20-alpine AS deps
 
-# Set the working directory
 WORKDIR /app
 
-# Install dependencies
-COPY package.json package-lock.json ./
-RUN npm install
+COPY package.json package-lock.json* ./ 
+RUN npm ci
 
-# Copy the rest of the application
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
 COPY . .
 
-# Build the Vite app for production
+COPY --from=deps /app/node_modules ./node_modules
+
+ENV NODE_ENV=production
+
 RUN npm run build
 
-# Step 2: Production Stage
-FROM nginx:alpine
+FROM node:20-alpine AS runner
 
-COPY nginx.conf /etc/nginx/nginx.conf
+WORKDIR /app
 
-COPY --from=build /app/dist /usr/share/nginx/html
+ENV NODE_ENV=production
 
-# Expose the port that Nginx will use
-EXPOSE 80
+RUN apk add --no-cache libc6-compat
 
-# Run Nginx in the foreground
-CMD ["nginx", "-g", "daemon off;"]
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+EXPOSE 3000
+
+CMD ["npm", "start"]

@@ -1,10 +1,10 @@
-// pages/DownloadPage.tsx
-import DownloadButton from "./components/DownloadButton";
-import { useEffect } from "react";
-import { useTerminal } from "./components/TerminalContext";
-import { Helmet } from "react-helmet";
+"use client";
 
-export default function DownloadPage() {
+import DownloadButton from "@/components/DownloadButton";
+import { useEffect } from "react";
+import { useTerminal } from "@/components/TerminalContext";
+
+export default function Commands() {
   const { addSteps, clearSteps } = useTerminal();
 
   useEffect(() => {
@@ -30,12 +30,6 @@ export default function DownloadPage() {
         console.error("Error fetching GPG key:", error);
       });
   }, []);
-  return (
-    <Helmet>
-      <title>GPG Public Key</title>
-      <meta property="og:title" content={`GPG public key`} />
-      <meta property="og:description" content={`Download public key`} />
-      <meta property="og:type" content="website" />
-    </Helmet>
-  );
+
+  return <></>;
 }
