@@ -14,7 +14,7 @@ export default function Commands() {
         clearSteps();
         addSteps([
           { type: "command", content: "cat ./gpg_pubkey.gpg" },
-          { type: "output", content: data },
+          { type: "output", content: data, style: "text-sm md:text-xl" },
           {
             type: "component",
             content: (

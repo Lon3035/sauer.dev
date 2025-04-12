@@ -3,8 +3,8 @@ import BrowserInfo from "./BrowserInfo";
 
 const Neofetch = () => {
   return (
-    <div className="flex flex-col md:flex-row  font-mono text-xl md:text-2xl leading-snug text-white justify-center">
-      <pre className="mr-20 mb-5 text-xl leading-tight tracking-wider font-bold">
+    <div className="flex flex-col md:flex-row  font-mono text-lg md:text-2xl leading-snug text-white justify-center">
+      <pre className="mr-20 mb-5 text-md md:text-xl leading-tight tracking-wider font-bold">
         <span className="text-green-400">{`                    c.'\n`}</span>
         <span className="text-green-400">{`                 ,xNMM.\n`}</span>
         <span className="text-green-400">{`               .OMMMMo\n`}</span>

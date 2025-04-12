@@ -10,6 +10,7 @@ export interface Step {
   type: "command" | "output" | "component" | "loading";
   content: string | ReactNode;
   delay?: number;
+  style?: string;
 }
 
 export default function GlobalTerminalBlock({
@@ -88,7 +89,7 @@ export default function GlobalTerminalBlock({
           switch (step.type) {
             case "command":
               return (
-                <div key={idx} className="flex flex-wrap">
+                <div key={idx} className={`flex flex-wrap ${step.style}`}>
                   <span className="text-purple-400 mr-2">user@web:~$</span>
                   <span>{step.content}</span>
                   {idx === renderedSteps.length - 1 && isTyping && (
@@ -98,7 +99,10 @@ export default function GlobalTerminalBlock({
               );
             case "output":
               return (
-                <div key={idx} className="text-gray-200">
+                <div
+                  key={idx}
+                  className={`text-gray-200 overflow-hidden ${step.style}`}
+                >
                   {step.content}
                 </div>
               );
@@ -106,7 +110,10 @@ export default function GlobalTerminalBlock({
               return <div key={idx}>{step.content}</div>;
             case "loading":
               return (
-                <div key={idx} className="flex items-center space-x-2">
+                <div
+                  key={idx}
+                  className={`flex items-center space-x-2 ${step.style}`}
+                >
                   <span>{step.content}</span>
                   <span className="animate-pulse">█</span>
                 </div>
