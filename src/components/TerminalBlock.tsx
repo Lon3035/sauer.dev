@@ -83,7 +83,7 @@ export default function GlobalTerminalBlock({
         <span className="h-3 w-3 rounded-full bg-green-500"></span>
       </div>
 
-      <div className="flex-1 overflow-y-auto px-6 py-4 whitespace-pre-wrap leading-relaxed text-2xl md:text-md space-y-1 terminal-scroll">
+      <div className="flex-1 overflow-y-auto px-6 py-4 whitespace-pre-wrap leading-relaxed text-lg md:text-2xl space-y-1 terminal-scroll">
         {renderedSteps.map((step, idx) => {
           switch (step.type) {
             case "command":
