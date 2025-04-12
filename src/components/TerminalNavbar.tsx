@@ -9,6 +9,7 @@ export default function TerminalNavbar() {
   const items: TerminalNavbarItem[] = [
     { label: "Home", onClick: () => (window.location.href = "/") },
     { label: "GPG", onClick: () => (window.location.href = "/gpg") },
+    { label: "About Me", onClick: () => (window.location.href = "/about") },
     { label: "Contact", onClick: () => (window.location.href = "/contact") },
   ];
   return (
