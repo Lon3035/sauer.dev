@@ -9,7 +9,7 @@ export default function LinkButton({ url, label }: LinkButtonProps) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="mt-2 inline-block font-mono rounded-md hover:bg-purple-400 hover:text-black transition-colors"
+      className="mt-2 inline-block font-mono rounded-md hover:bg-purple-400 hover:text-black transition-colors duration-300"
     >
       [ {label} ]
     </a>

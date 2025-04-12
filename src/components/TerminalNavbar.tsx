@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 
 type TerminalNavbarItem = {
@@ -24,7 +25,9 @@ export default function TerminalNavbar() {
   return (
     <nav className="w-full">
       <div className="max-w-5xl mx-auto flex justify-between items-center pt-5 text-lg font-bold">
-        <div className="text-white font-mono ml-8">Leon Sauer</div>
+        <div className="text-white font-mono ml-8 hover:text-purple-400 transition-all duration-300">
+          <Link href={"/"}>Leon Sauer</Link>
+        </div>
 
         <div className="block lg:hidden mr-8">
           <button onClick={toggleMobileMenu} className="text-white">
