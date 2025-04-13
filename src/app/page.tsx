@@ -13,9 +13,7 @@ export const metadata: Metadata = {
     "Business Informatics",
     "Homepage",
   ],
-  icons: {
-    icon: "./icon.svg",
-  },
+  icons: "./icon.svg",
 };
 
 export default function Home() {

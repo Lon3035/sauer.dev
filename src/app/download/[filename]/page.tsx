@@ -36,9 +36,8 @@ export async function generateMetadata({
       "Business Informatics",
       "Download",
     ],
-    icons: {
-      icon: "./icon.svg",
-    },
+    robots: "noindex",
+    icons: "./icon.svg",
     openGraph: {
       title: `📁 ${filename}`,
       description: `Download ${filename} • ${sizeInfo}`,

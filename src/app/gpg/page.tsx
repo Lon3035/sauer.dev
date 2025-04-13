@@ -12,9 +12,8 @@ export const metadata: Metadata = {
     "Business Informatics",
     "GPG",
   ],
-  icons: {
-    icon: "./icon.svg",
-  },
+  robots: "noindex",
+  icons: "./icon.svg",
 };
 
 export default function DownloadPage() {
