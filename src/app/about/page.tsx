@@ -1,15 +1,15 @@
+import AboutStaticContent from "./AboutStaticContent";
 import Commands from "./commands";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Me",
-  description: "About me page of Leon Sauer",
+  description: "About me page of Leon Sauer.",
   keywords: [
     "Leon Sauer",
     "Leon Gabriel Sauer",
     "Developer",
     "Software Engineer",
-    "Business Informatics",
     "About me",
   ],
   icons: {
@@ -18,5 +18,10 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <Commands />;
+  return (
+    <div>
+      <AboutStaticContent />
+      <Commands />
+    </div>
+  );
 }

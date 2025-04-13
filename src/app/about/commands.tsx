@@ -2,7 +2,6 @@
 import Neofetch from "@/components/Neofetch";
 import { useTerminal } from "@/components/TerminalContext";
 import { useEffect } from "react";
-
 const Commands = () => {
   const { addSteps } = useTerminal();
 
@@ -13,6 +12,17 @@ const Commands = () => {
       {
         type: "component",
         content: <Neofetch />,
+      },
+      { type: "output", content: " " },
+      {
+        type: "output",
+        content:
+          "Business informatics student and software engineer based in Hamburg, Germany.",
+      },
+      {
+        type: "output",
+        content:
+          "Interested in building cloud native applications, exploring new technologies, and working with databases.",
       },
     ]);
   }, []);
