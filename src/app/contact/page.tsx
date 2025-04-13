@@ -1,5 +1,6 @@
 import Commands from "./commands";
 import type { Metadata } from "next";
+import ContactStaticContent from "./ContactStaticContent";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -18,5 +19,10 @@ export const metadata: Metadata = {
 };
 
 export default function DownloadPage() {
-  return <Commands />;
+  return (
+    <div>
+      <ContactStaticContent />
+      <Commands />
+    </div>
+  );
 }

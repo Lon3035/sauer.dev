@@ -21,8 +21,7 @@ const Commands = () => {
       },
       {
         type: "output",
-        content:
-          "Interested in building cloud native applications, exploring new technologies, and working with databases.",
+        content: "Interested in cloud, databases and exporing new stuff.",
       },
     ]);
   }, []);

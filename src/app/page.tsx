@@ -1,5 +1,6 @@
 import Commands from "./commands";
 import type { Metadata } from "next";
+import HomeStaticContent from "./HomeStaticContent";
 
 export const metadata: Metadata = {
   title: "Sauer.dev",
@@ -18,5 +19,10 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <Commands />;
+  return (
+    <>
+      <HomeStaticContent />
+      <Commands />
+    </>
+  );
 }

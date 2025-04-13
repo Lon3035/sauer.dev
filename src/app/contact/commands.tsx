@@ -9,12 +9,12 @@ const Commands = () => {
   useEffect(() => {
     addSteps([
       { type: "command", content: "cat ./sauer/leon/contact_info.txt" },
-      { type: "output", content: " " },
-      { type: "output", content: "Leon Gabriel Sauer C|_|" },
-      { type: "output", content: " " },
+      { type: "output", content: " ", delay: 10 },
+      { type: "output", content: "Leon Gabriel Sauer" },
+      { type: "output", content: " ", delay: 10 },
       { type: "output", content: "E-Mail:" },
       { type: "output", content: "sauer.leongabriel@gmail.com" },
-      { type: "output", content: " " },
+      { type: "output", content: " ", delay: 10 },
       { type: "output", content: "Socials:" },
       {
         type: "component",

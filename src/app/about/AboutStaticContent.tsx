@@ -6,10 +6,7 @@ export default function AboutStaticContent() {
         Business informatics student and software engineer based in Hamburg,
         Germany.
       </p>
-      <p>
-        Interested in building cloud native applications, exploring new
-        technologies, and working with databases.
-      </p>
+      <p>Interested in cloud, databases and exporing new stuff.</p>
       <h2>Technologies & Stack</h2>
       <ul>
         <li>Golang</li>

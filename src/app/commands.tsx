@@ -9,19 +9,19 @@ const Commands = () => {
   useEffect(() => {
     addSteps([
       { type: "command", content: "go run ./cmd/app/main.go" },
-      { type: "output", content: "Hello World!", delay: 700 },
-      { type: "output", content: " " },
+      { type: "output", content: "Hello World!" },
+      { type: "output", content: " ", delay: 10 },
       {
         type: "component",
         content: <AsciiArt art={["  /\\_/\\  ", " ( o.o ) ", "  > ^ <  "]} />,
       },
-      { type: "output", content: " " },
+      { type: "output", content: " ", delay: 10 },
       { type: "output", content: "Hi, I'm Leon ^^" },
       {
         type: "output",
         content: "Welcome to my little corner of the internet!",
       },
-      { type: "output", content: " " },
+      { type: "output", content: " ", delay: 10 },
       {
         type: "output",
         content:
