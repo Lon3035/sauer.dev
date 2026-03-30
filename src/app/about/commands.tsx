@@ -17,7 +17,7 @@ const Commands = () => {
       {
         type: "output",
         content:
-          "Business informatics student and software engineer based in Hamburg, Germany.",
+          "Business informatics graduate and software engineer based in Hamburg, Germany.",
       },
       {
         type: "output",
